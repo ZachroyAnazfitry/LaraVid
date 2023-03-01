@@ -23,4 +23,6 @@ class Model extends BaseModel
             $model->{$model->getKeyName()} = (string)Str::uuid();  // cast into string
         });
     }
+
+    protected $guarded = [];
 }

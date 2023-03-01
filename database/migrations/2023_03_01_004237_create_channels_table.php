@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('channels', function (Blueprint $table) {
             $table->uuid('id');
             // added
-            $table->string('title');
+            $table->uuid('user_id');
+            $table->string('name');
             $table->text('description')->nullable();
             $table->string('image')->nullable();
-            
+
             $table->timestamps();
         });
     }

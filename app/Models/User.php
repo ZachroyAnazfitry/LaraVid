@@ -28,7 +28,16 @@ class User extends Authenticatable
         });
     }
 
-    
+    // define relationship with Channel
+   /**
+    * Get the user associated with the User
+    *
+    * @return \Illuminate\Database\Eloquent\Relations\HasOne
+    */
+   public function channel()
+   {
+       return $this->hasOne(Channel::class);
+   }
 
     /**
      * The attributes that are mass assignable.
