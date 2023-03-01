@@ -3,7 +3,11 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Channel;
+use id;
+use App\Models\User;
 use Illuminate\Database\Seeder;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,5 +22,19 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        $users = User::all();
+        
+        foreach ($users as $user) {
+            Channel::factory(2)->create([
+                'user_id' => $user->id,
+                
+            ]);
+
+            // factory(Channel::class, 10)->create([
+            //     'user_id' => $user->id,
+            // ]);
+        }
+        
     }
 }

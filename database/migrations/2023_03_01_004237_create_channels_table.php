@@ -15,6 +15,7 @@ return new class extends Migration
             $table->uuid('id');
             // added
             $table->uuid('user_id');
+            // $table->uuid('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('name');
             $table->text('description')->nullable();
             $table->string('image')->nullable();

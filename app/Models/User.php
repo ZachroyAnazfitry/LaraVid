@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Str;
+use App\Models\Channel;
 
 class User extends Authenticatable
 {
@@ -29,11 +30,6 @@ class User extends Authenticatable
     }
 
     // define relationship with Channel
-   /**
-    * Get the user associated with the User
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\HasOne
-    */
    public function channel()
    {
        return $this->hasOne(Channel::class);

@@ -61,10 +61,22 @@
                                         {{ __('Logout') }}
                                     </a>
 
+                                    {{-- only appeared if user is authenticated --}}
+                                    @auth
+                                        {{-- Channel --}}
+                                        <a class="dropdown-item" href="{{route('show-channel')}}" >
+                                            {{ __('My Channel') }}
+                                        </a>      
+                                    @endauth
+
+               
+
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
                                 </div>
+
+                              
                             </li>
                         @endguest
                     </ul>
