@@ -24,5 +24,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Route::resource('channel', ChannelController::class); 
-Route::get('channel', [ChannelController::class, 'show'])->name('show-channel');
+Route::get('channel', [ChannelController::class, 'show'])->name('channel.show');
+// Route::put('channel', [ChannelController::class, 'update'])->name('update-channel');
 

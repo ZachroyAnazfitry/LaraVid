@@ -18,7 +18,8 @@ class CreateUserChannel
     /**
      * Handle the event.
      */
-    public function handle(object $event): void
+    // public function handle(object $event): void
+    public function handle($event)
     {
         // create new channel for the user
         $event->user->channel()->create([

@@ -55,21 +55,20 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+                                     {{-- only appeared if user is authenticated --}}
+                                     @auth
+                                        {{-- Channel --}}
+                                        <a class="dropdown-item" href="{{ route('channel.show', auth()->user()->channel->id) }}" >
+                                            {{ __('My Channel') }}
+                                        </a>      
+                                     @endauth
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
-                                    {{-- only appeared if user is authenticated --}}
-                                    @auth
-                                        {{-- Channel --}}
-                                        <a class="dropdown-item" href="{{route('show-channel')}}" >
-                                            {{ __('My Channel') }}
-                                        </a>      
-                                    @endauth
-
-               
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf

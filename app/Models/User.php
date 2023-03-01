@@ -25,7 +25,7 @@ class User extends Authenticatable
         static::creating(function($model){
             // set id equal to string to generate uuid for the model
             // $model->id = Str::uuid(); // not appicable to use for other models
-            $model->{$model->getKeyName()} = Str::uuid();
+            $model->{$model->getKeyName()} = (string)Str::uuid();
         });
     }
 

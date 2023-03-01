@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Channels\UpdateChannelRequest;
 use App\Models\Channel;
 use Illuminate\Http\Request;
 
@@ -37,6 +38,9 @@ class ChannelController extends Controller
     public function show(Channel $channel)
     {
         //
+
+        // $channel = Channel::find($channel);
+        dd($channel);
         return view('channel.show', compact('channel'));
     }
 
@@ -51,9 +55,18 @@ class ChannelController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateChannelRequest $request, Channel $channel)
     {
         //
+
+        $channel->update([
+            'name' => $request->name,
+            'description' => $request->description
+        ]);
+
+        $channel->save();
+
+        return redirect()->back();
     }
 
     /**
